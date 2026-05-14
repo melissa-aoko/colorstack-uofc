@@ -32,7 +32,7 @@ const OFFERS = [
 const RESOURCES = [
     { label: "Coming Soon",           sub: "We look forward to supporting you",   href: "#" },
 ];
-
+/*
 const TEAM = [
     { name: "Your Name", role: "Co-President",     initials: "YN" },
     { name: "Your Name", role: "Co-President",     initials: "YN" },
@@ -41,7 +41,7 @@ const TEAM = [
     { name: "Your Name", role: "Treasurer",     initials: "YN" },
     { name: "Your Name", role: "Events Chair",  initials: "YN" },
     { name: "Your Name", role: "Marketing",     initials: "YN" },
-];
+];*/
 
 /* ─── Hooks ─── */
 function useInView(ref) {
@@ -421,8 +421,16 @@ function JoinBanner() {
     );
 }
 
+const TEAM = [
+    { name: "Favour Iheanyichukwu",   role: "Co-President",      initials: "FI", linkedin: "https://www.linkedin.com/in/favour-iheanyichukwu/" },
+    { name: "Nahom Sahile", role: "Co-President", initials: "NS", linkedin: "https://www.linkedin.com/in/nahom-sahile-061a67249/" },
+    { name: "Melissa Aoko", role: "Vice President",      initials: "MA", linkedin: "https://www.linkedin.com/in/melissa-aoko/" },
+    { name: "Theophilus Eriata",    role: "VP Academics",      initials: "TE", linkedin: "https://www.linkedin.com/in/theophilus-eriata" },
+    {name: "Eniola Omoniyi", role:"VP Marketing", initials:"EO", linkedin: "https://www.linkedin.com/in/eniola-omoniyi-6bb6b7344/"},
+
+];
 /* ─── TEAM ─── */
-function TeamCard({ name, role, initials }) {
+function TeamCard({ name, role, initials, linkedin }) {
     const [hov, setHov] = useState(false);
     const palette = { President: R, "Vice President": Y, Secretary: R, Treasurer: Y, "Events Chair": R, Marketing: Y };
     const c = palette[role] || R;
@@ -434,12 +442,13 @@ function TeamCard({ name, role, initials }) {
             boxShadow: hov ? `0 12px 32px ${Y}28` : "none",
             transition: "all 0.3s ease",
         }}>
-            <div style={{ width: 72, height: 72, borderRadius: "50%", background: c === Y ? Y : R, border: `3px solid ${c === Y ? R : Y}`, margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "\'Bebas Neue\', Impact, sans-serif", fontSize: 22, color: W }}>
+            <div style={{ width: 72, height: 72, borderRadius: "50%", background: c === Y ? Y : R, border: `3px solid ${c === Y ? R : Y}`, margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: W }}>
                 {initials}
             </div>
-            <div style={{ fontFamily: "\'Bebas Neue\', Impact, sans-serif", fontSize: 18, color: DARK, letterSpacing: "0.04em", marginBottom: 4 }}>{name}</div>
-            <div style={{ fontSize: 11, color: c === Y ? R : R, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 16 }}>{role}</div>
-            <a href="#" style={{ display: "inline-block", background: "#F5F5F5", border: "1.5px solid #EEE", borderRadius: 100, padding: "6px 16px", fontSize: 11.5, color: "#888", textDecoration: "none", transition: "all 0.2s" }}
+            <div style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 18, color: DARK, letterSpacing: "0.04em", marginBottom: 4 }}>{name}</div>
+            <div style={{ fontSize: 11, color: R, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 16 }}>{role}</div>
+            <a href={linkedin || "#"} target="_blank" rel="noopener noreferrer"
+               style={{ display: "inline-block", background: "#F5F5F5", border: "1.5px solid #EEE", borderRadius: 100, padding: "6px 16px", fontSize: 11.5, color: "#888", textDecoration: "none", transition: "all 0.2s" }}
                onMouseEnter={e => { e.target.style.background = Y; e.target.style.color = R; e.target.style.borderColor = Y; }}
                onMouseLeave={e => { e.target.style.background = "#F5F5F5"; e.target.style.color = "#888"; e.target.style.borderColor = "#EEE"; }}
             >LinkedIn →</a>
@@ -452,7 +461,7 @@ function Team() {
         <section id="team" style={{ padding: "7rem 5rem", maxWidth: 1200, margin: "0 auto", background: W }}>
             <FadeIn>
                 <SL>The Team</SL>
-                <h2 style={{ fontFamily: "\'Bebas Neue\', Impact, sans-serif", fontSize: "clamp(2.8rem, 5vw, 4.2rem)", color: DARK, lineHeight: 0.95, marginBottom: 12 }}>
+                <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: "clamp(2.8rem, 5vw, 4.2rem)", color: DARK, lineHeight: 0.95, marginBottom: 12 }}>
                     Get To Know <span style={{ color: R }}>Us</span>
                 </h2>
                 <p style={{ fontSize: 14, color: "#888", maxWidth: 420, lineHeight: 1.7, marginBottom: 48 }}>The passionate students building ColorStack UCalgary — your people in tech at the University of Calgary.</p>
@@ -471,7 +480,6 @@ function Team() {
         </section>
     );
 }
-
 /* ─── FOOTER ─── */
 function Footer() {
     return (
