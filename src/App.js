@@ -420,7 +420,7 @@ function JoinBanner() {
         </section>
     );
 }
-
+/*
 const TEAM = [
     { name: "Favour Iheanyichukwu",   role: "Co-President",      initials: "FI", linkedin: "https://www.linkedin.com/in/favour-iheanyichukwu/" },
     { name: "Nahom Sahile", role: "Co-President", initials: "NS", linkedin: "https://www.linkedin.com/in/nahom-sahile-061a67249/" },
@@ -429,7 +429,7 @@ const TEAM = [
     {name: "Eniola Omoniyi", role:"VP Marketing", initials:"EO", linkedin: "https://www.linkedin.com/in/eniola-omoniyi-6bb6b7344/"},
 
 ];
-/* ─── TEAM ─── */
+
 function TeamCard({ name, role, initials, linkedin }) {
     const [hov, setHov] = useState(false);
     const palette = { President: R, "Vice President": Y, Secretary: R, Treasurer: Y, "Events Chair": R, Marketing: Y };
@@ -479,7 +479,7 @@ function Team() {
             </div>
         </section>
     );
-}
+} */
 /* ─── FOOTER ─── */
 function Footer() {
     return (
@@ -521,7 +521,6 @@ export default function App() {
             <Events />
             <Resources />
             <JoinBanner />
-            <Team />
             <Footer />
         </div>
     );
